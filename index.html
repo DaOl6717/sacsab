@@ -16,18 +16,44 @@
         .card h3 { color: #0056b3; margin-top: 0; }
         footer { background: #333; color: #ccc; text-align: center; padding: 2rem; font-size: 0.9rem; }
         .tagline { color: #555; font-style: italic; }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo"><strong>SACSAB</strong></div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/products/">Our Products</a></li>
+            <li><a href="/news/">News</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
 <section class="hero">
     <h1>Swedish Airspace Control Systems AB</h1>
-    <p class="tagline">Take back control of your airspace.</p>
-    <p>Providing next-generation drone defense technology.</p>
+    <p>Take back control of your airspace.</p>
 </section>
 
 <div class="container">

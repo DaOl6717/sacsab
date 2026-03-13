@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SACSAB | Swedish Airspace Control Systems AB</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: #333;
+        }
+
+        header {
+            background: #002b5c;
+            color: white;
+            padding: 2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero {
+            background: #f4f7f9;
+            padding: 4rem 10%;
+            text-align: center;
+            border-bottom: 5px solid #0056b3;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #002b5c;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            padding: 3rem 10%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: #0056b3;
+            margin-top: 0;
+        }
+
+        footer {
+            background: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .tagline {
+            color: #555;
+            font-style: italic;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><strong>SACSAB</strong></div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/products/">Our Products</a></li>
+                <li><a href="/news/">News</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {{ content }}
+
+    <footer>
+        <p>&copy; 2026 Swedish Airspace Control Systems AB (SACSAB). Uppsala, Sweden.</p>
+        <p>Contact: david.olmedo@sacsab.com</p>
+    </footer>
+
+</body>
+
+</html>
