@@ -1,6 +1,23 @@
 ---
-layout: default
+layout: post
 title: News
 ---
-<h2>News</h2>
-<p>Still under construction...</p>
+
+<div class="container">
+    <h1>Latest News & Updates</h1>
+    <p>Follow SACSAB's mission to secure national airspace.</p>
+    <hr>
+
+    <div class="news-feed">
+        {% for post in site.posts %}
+        <article style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
+            <small style="color: #888;">{{ post.date | date: "%B %d, %Y" }}</small>
+            <h2 style="margin-top: 5px;">
+                <a href="{{ post.url }}" style="color: #002b5c; text-decoration: none;">{{ post.title }}</a>
+            </h2>
+            <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+            <a href="{{ post.url }}" style="color: #0056b3; font-weight: bold;">Read Full Update &rarr;</a>
+        </article>
+        {% endfor %}
+    </div>
+</div>

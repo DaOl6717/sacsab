@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<div class="container" style="max-width: 800px;">
+    <small><a href="/news/">&larr; Back to All News</a></small>
+    <h1 style="color: #002b5c;">{{ page.title }}</h1>
+    <p style="color: #888;">Published on {{ page.date | date: "%B %d, %Y" }}</p>
+    <hr>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+</div>
