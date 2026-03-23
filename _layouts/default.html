@@ -5,17 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | SACSAB</title>
+
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
-            color: #333;
-            background: #fdfdfd;
+            color: #1a1a1a;
+            background: #f7f9fc;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #002b5c;
+            margin-top: 0;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #444;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         header {
-            background: #002b5c;
+            background: #001f45;
             color: white;
             padding: 0 10%;
             height: 80px;
@@ -25,12 +47,14 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
 
         .logo {
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            font-weight: bold;
+            font-size: 1.6rem;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         nav ul {
@@ -38,46 +62,43 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav a {
             color: white;
-            text-decoration: none;
             font-weight: 500;
-            transition: 0.3s;
+            transition: 0.25s;
         }
 
         nav a:hover {
             color: #4da3ff;
         }
-    
+
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
-            z-index: 1001;
         }
 
         .menu-toggle span {
-            width: 25px;
+            width: 26px;
             height: 3px;
             background: white;
             border-radius: 2px;
         }
 
         .hero {
-            background: #f4f7f9;
+            background: linear-gradient(135deg, #e8eef5, #f4f7fa);
             padding: 5rem 10%;
             text-align: center;
-            border-bottom: 5px solid #0056b3;
+            border-bottom: 4px solid #003d80;
         }
 
         .hero h1 {
             font-size: 2.8rem;
-            color: #002b5c;
-            margin: 0;
+            margin-bottom: 0.5rem;
         }
 
         .tagline {
@@ -97,50 +118,47 @@
         }
 
         .card {
-            border: 1px solid #eee;
+            border: 1px solid #e2e6ea;
             padding: 2rem;
             border-radius: 12px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
         }
 
         footer {
-            background: #1a1a1a;
-            color: #aaa;
+            background: #0f0f0f;
+            color: #bbb;
             text-align: center;
-            padding: 3rem;
+            padding: 3rem 10%;
             margin-top: 4rem;
             font-size: 0.9rem;
+            border-top: 3px solid #003d80;
         }
 
-        /* Om användare använder mobil enhet */
+        footer p {
+            margin: 0.3rem 0;
+        }
+
         @media (max-width: 768px) {
             header {
                 padding: 0 5%;
                 height: 70px;
-                position: relative;
             }
 
             .logo {
-                position: absolute;
-                left: 5%;
-                top: 50%;
-                transform: translateY(-50%);
+                font-size: 1.3rem;
             }
 
             .menu-toggle {
                 display: flex;
-                position: absolute;
-                right: 5%;
-                top: 50%;
-                transform: translateY(-50%);
             }
 
-            nav {
-                width: 100%;
-            }
-
-            /* Specifikt för mobila enheter */
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -148,7 +166,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: #002b5c;
+                background: #001f45;
                 padding: 20px 0;
                 text-align: center;
                 border-top: 1px solid #003a7a;
@@ -168,7 +186,7 @@
             }
 
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .container {
@@ -206,14 +224,14 @@
 
     <footer>
         <p>&copy; 2026 Swedish Airspace Control Systems AB (SACSAB). Uppsala, Sweden.</p>
-        <p>Org.nr: Org.nr 559574-3773</p>
+        <p>Org.nr: 559574-3773</p>
     </footer>
 
     <script>
         const menuBtn = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
 
-        menuBtn.addEventListener('click', function () {
+        menuBtn.addEventListener('click', () => {
             navList.classList.toggle('active');
         });
 

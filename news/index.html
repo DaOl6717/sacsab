@@ -5,6 +5,7 @@ title: News
 
 <div class="container">
     <h1>Latest News & Updates</h1>
+    <p style="color: #555;">Company announcements, development milestones, and industry insights.</p>
     <hr>
 
     <div class="news-feed">
@@ -12,10 +13,12 @@ title: News
         <article style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px;">
             <small style="color: #888;">{{ post.date | date: "%B %d, %Y" }}</small>
             <h2 style="margin-top: 5px;">
-                <a href="{{ post.url }}" style="color: #002b5c; text-decoration: none;">{{ post.title }}</a>
+                <a href="{{ post.url }}" style="color: #002b5c; text-decoration: none;">
+                    {{ post.title }}
+                </a>
             </h2>
             <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-            <a href="{{ post.url }}" style="color: #0056b3; font-weight: bold;">Read Full Update &rarr;</a>
+            <a href="{{ post.url }}" style="color: #0056b3; font-weight: bold;">Read Full Update →</a>
         </article>
         {% endfor %}
     </div>
