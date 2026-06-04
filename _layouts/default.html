@@ -6,55 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | SACSAB</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
     <style>
+        :root {
+            --bg-deep: #0a0f1d;
+            --bg-card: #111827;
+            --border-color: #1f2937;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-glow: #00f2fe;
+            --accent-brand: #38bdf8;
+        }
+
         body {
-            font-family: 'Segoe UI', sans-serif;
-            line-height: 1.7;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
             margin: 0;
-            color: #1a1a1a;
-            background: #f7f9fc;
+            color: var(--text-main);
+            background: var(--bg-deep);
+            -webkit-font-smoothing: antialiased;
         }
 
         h1,
         h2,
-        h3 {
-            color: #002b5c;
+        h3,
+        h4 {
+            color: white;
             margin-top: 0;
-            letter-spacing: 0.5px;
+            letter-spacing: -0.02em;
+            font-weight: 700;
         }
 
         p {
-            color: #444;
+            color: var(--text-muted);
         }
 
         a {
-            color: #0056b3;
+            color: var(--accent-brand);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--accent-glow);
         }
 
+        /* Tech-styled Header */
         header {
-            background: #001f45;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: white;
             padding: 0 10%;
-            height: 80px;
+            height: 75px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
-            font-size: 1.6rem;
-            letter-spacing: 1.5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
             font-weight: 700;
-            text-transform: uppercase;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-glow);
         }
 
         nav ul {
@@ -62,97 +99,178 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 30px;
+            gap: 35px;
         }
 
         nav a {
-            color: white;
+            color: var(--text-muted);
+            font-size: 0.95rem;
             font-weight: 500;
-            transition: 0.25s;
+            letter-spacing: 0.03em;
         }
 
-        nav a:hover {
-            color: #4da3ff;
+        nav a:hover,
+        nav li.active a {
+            color: white;
         }
 
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 5px;
+            gap: 6px;
         }
 
         .menu-toggle span {
-            width: 26px;
-            height: 3px;
+            width: 24px;
+            height: 2px;
             background: white;
-            border-radius: 2px;
+            transition: 0.3s;
         }
 
+        /* Hero Layout Overhaul */
         .hero {
-            background: linear-gradient(135deg, #e8eef5, #f4f7fa);
-            padding: 5rem 10%;
+            position: relative;
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 45%),
+                radial-gradient(circle at bottom left, rgba(0, 242, 254, 0.03), transparent 40%);
+            padding: 8rem 10% 7rem 10%;
             text-align: center;
-            border-bottom: 4px solid #003d80;
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        /* Subtle grid blueprint line pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--border-color) 1px, transparent 1px), linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.15;
+            z-index: -1;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .tagline {
-            color: #555;
-            font-style: italic;
-            font-size: 1.2rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent-brand);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
         }
 
         .container {
-            padding: 4rem 10%;
+            padding: 6rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
+        /* Tactical Cards Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 3rem;
         }
 
         .card {
-            border: 1px solid #e2e6ea;
-            padding: 2rem;
-            border-radius: 12px;
-            background: #ffffff;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 8px;
+            background: var(--bg-card);
+            position: relative;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .card::before {
+            content: 'SYS.STATUS // ACTIVE';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 1px;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Futuristic Action Button */
+        .btn-primary {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            border: 1px solid var(--accent-brand);
+            padding: 0.75rem 1.7rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--accent-glow);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            color: white;
         }
 
         footer {
-            background: #3f3f3f;
-            color: #bbb;
-            text-align: center;
-            padding: 3rem 10%;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-            border-top: 3px solid #003d80;
+            background: #060a14;
+            color: var(--text-muted);
+            text-align: left;
+            padding: 4rem 10%;
+            margin-top: 6rem;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         footer p {
-            margin: 0.3rem 0;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.4);
         }
 
         @media (max-width: 768px) {
             header {
-                padding: 0 5%;
+                padding: 0 6%;
                 height: 70px;
-            }
-
-            .logo {
-                font-size: 1.3rem;
             }
 
             .menu-toggle {
@@ -166,11 +284,11 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: #001f45;
-                padding: 20px 0;
+                background: var(--bg-card);
+                padding: 30px 0;
                 text-align: center;
-                border-top: 1px solid #003a7a;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+                border-top: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--border-color);
             }
 
             nav ul.active {
@@ -178,19 +296,24 @@
             }
 
             nav ul li {
-                padding: 15px 0;
+                padding: 12px 0;
             }
 
             .hero {
-                padding: 3rem 5%;
+                padding: 6rem 6% 5rem 6%;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.3rem;
             }
 
             .container {
-                padding: 2rem 5%;
+                padding: 4rem 6%;
+            }
+
+            .footer-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -205,8 +328,8 @@
             <ul id="nav-list">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about/">About</a></li>
-                <li><a href="/products/">Our Products</a></li>
-                <li><a href="/news/">News</a></li>
+                <li><a href="/products/">Our Systems</a></li>
+                <li><a href="/news/">Intel</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
         </nav>
@@ -223,8 +346,16 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Swedish Airspace Control Systems AB (SACSAB). Uppsala, Sweden.</p>
-        <p>Org.nr: 559574-3773</p>
+        <div class="footer-wrapper">
+            <div>
+                <p>&copy; 2026 Swedish Airspace Control Systems AB. All Rights Reserved.</p>
+                <p style="margin-top: 4px; color: rgba(255,255,255,0.25)">Uppsala, Sweden // Security through Autonomy
+                </p>
+            </div>
+            <div>
+                <p>Org.nr: 559574-3773</p>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -233,12 +364,6 @@
 
         menuBtn.addEventListener('click', () => {
             navList.classList.toggle('active');
-        });
-
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
         });
     </script>
 
