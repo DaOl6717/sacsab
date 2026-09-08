@@ -4,49 +4,54 @@ title: Contact
 ---
 
 <div class="container">
-    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">System Inquiries</h1>
+    <span class="mono-tag">Inquiries</span>
+    <h1 style="font-size: 2.5rem; margin-top: 0.25rem; margin-bottom: 1rem;">System Inquiries</h1>
     <p style="color: var(--text-muted); max-width: 600px; font-size: 1.1rem; margin-bottom: 3rem;">
-        Connect with us for strategic partnerships, technical queries, or system specifications.
+        Contact our technical leadership for strategic partnerships, technical inquiries, or system specifications.
     </p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; min-height: 250px; align-items: start;">
-
-        <div style="border-left: 2px solid var(--accent-brand); padding-left: 1.5rem;">
-            <h2
-                style="font-size: 1.25rem; font-family: 'JetBrains Mono', monospace; color: white; text-transform: uppercase; letter-spacing: 1px;">
-                Logistics Hub</h2>
-            <p style="margin-top: 1.5rem; font-size: 1.05rem;">
-                <strong>SACSAB Headquarters</strong><br>
+    <div class="contact-grid">
+        <div class="contact-col">
+            <span class="mono-tag" style="color: #ffffff;">Headquarters</span>
+            <p style="margin-top: 1rem; font-size: 1.05rem; line-height: 1.7;">
+                <strong>SACSAB AB</strong><br>
                 Dag Hammarskjölds Väg 29 D<br>
                 752 37 Uppsala<br>
                 Sweden
             </p>
         </div>
 
-        <div>
-            <h2
-                style="font-size: 1.25rem; font-family: 'JetBrains Mono', monospace; color: white; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">
-                Leadership</h2>
-
-            <div class="team-member-card">
-                <div class="team-details">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 0.2rem;">David Olmedo</h3>
-                    <p
-                        style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-brand); text-transform: uppercase; margin: 0 0 1rem 0;">
-                        Founder & CEO</p>
-                    <p style="font-size: 0.95rem; margin: 0.3rem 0;">Email: <a
-                            href="mailto:david.olmedo@sacsab.com">david.olmedo@sacsab.com</a></p>
-                    <p style="font-size: 0.95rem; margin: 0.3rem 0;"><a href="https://www.linkedin.com/in/davolm/"
-                            target="_blank" style="display: inline-flex; align-items: center; gap: 4px;">LinkedIn
-                            Profile</a></p>
-                </div>
+        <div class="contact-col">
+            <span class="mono-tag" style="color: #ffffff;">Leadership</span>
+            <div class="team-member-card" style="margin-top: 1rem;">
+                <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">David Olmedo</h3>
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent-brand); text-transform: uppercase; margin: 0 0 1rem 0;">
+                    Founder & Managing Director
+                </p>
+                <p style="font-size: 0.95rem; margin: 0.4rem 0;">
+                    Email: <a href="mailto:david.olmedo@sacsab.com">david.olmedo@sacsab.com</a>
+                </p>
+                <p style="font-size: 0.95rem; margin: 0.4rem 0;">
+                    <a href="https://www.linkedin.com/in/davolm/" target="_blank" rel="noopener noreferrer">LinkedIn Profile &rarr;</a>
+                </p>
             </div>
         </div>
-
     </div>
 </div>
 
 <style>
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem;
+        align-items: start;
+    }
+
+    .contact-col {
+        border-left: 2px solid var(--accent-brand);
+        padding-left: 1.75rem;
+    }
+
     .team-member-card {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
@@ -55,9 +60,9 @@ title: Contact
     }
 
     @media (max-width: 768px) {
-        .container>div {
-            grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
         }
     }
 </style>
